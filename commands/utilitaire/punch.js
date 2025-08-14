@@ -5,12 +5,12 @@ module.exports = {
   aliases: ['hit'],
 
   run: async (client, message, args, prefix, color) => {
-    console.log(`[CMD TEST] punch triggered by ${message.author.tag}`);
     const gifs = [
-      'https://media.giphy.com/media/xUOwGdnPZ3r3D1c4uk/giphy.gif',
-      'https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif',
-      'https://media.giphy.com/media/l1J9s6Gg5vQXk0J4c/giphy.gif'
+      'https://media.tenor.com/1LQ6dC4ZljEAAAAC/anime-punch.gif',
+      'https://media.tenor.com/HyxYO8ZVasEAAAAC/punch-anime.gif',
+      'https://media.tenor.com/12b7eJD9P7IAAAAC/anime-fight.gif'
     ];
+
     const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
     const target = message.mentions.users.first();
     let description = `${message.author.username} donne un coup de poing ! 🥊`;
@@ -19,10 +19,11 @@ module.exports = {
     const embed = new Discord.MessageEmbed()
       .setColor(color)
       .setDescription(description)
-      .setImage(randomGif)
+      .setImage(randomGif) // Lien HTTPS valide de Tenor
       .setFooter(client.config.name)
       .setTimestamp();
 
+    console.log(`[CMD] GIF choisi : ${randomGif}`);
     return message.channel.send(embed);
   }
 };
