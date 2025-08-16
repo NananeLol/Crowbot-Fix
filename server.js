@@ -13,4 +13,4 @@ server.listen(PORT, () => {
 });
 
 // Lance ton bot Discord
-require('./src/index.js'); // adapte le chemin si nécessaire
+require('./index.js'); // adapte le chemin si nécessaire
